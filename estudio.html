@@ -66,13 +66,10 @@ const list = document.getElementById('list');
 QUESTIONS.forEach((q, i) => {
   const card = document.createElement('div');
   card.className = 'qcard';
-  const opts = q.options.map(o => {
-    const isCorrect = q.correct_answer.includes(o);
-    return `<div class="opt${isCorrect ? ' correct' : ''}">${o}</div>`;
-  }).join('');
+  const answer = q.correct_answer.join(', ');
   card.innerHTML = `<div class="qnum">Pregunta ${i + 1} de ${QUESTIONS.length}</div>
     <div class="qtitle">${q.title}</div>
-    ${opts}`;
+    <div class="opt correct">${answer}</div>`;
   list.appendChild(card);
 });
 </script>
